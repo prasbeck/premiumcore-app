@@ -7,24 +7,37 @@ import Explore from "./Explore";
 import Profile from "./Profile";
 import Schedule from "./Schedule";
 import Chats from "../Chats";
+import Schedules from "../Schedules";
 
 function Header() {
   return (
     <View style={{ flexDirection: "row", paddingHorizontal: 10 }}>
       <Image
         source={require("../../../assets/images/logo.png")}
-        style={{ width: 30, height: 30 }}
+        style={{ width: 35, height: 30, marginTop: 6 }}
       />
-      <Text
-        style={{
-          fontSize: 25,
-          fontWeight: "900",
-          color: "#ffa800",
-          marginLeft: 10,
-        }}
-      >
-        PremiumCores
-      </Text>
+      <View>
+        <Text
+          style={{
+            fontSize: 25,
+            fontWeight: "900",
+            color: "#ffa800",
+            marginLeft: 10,
+          }}
+        >
+          PremiumCores
+        </Text>
+        <Text
+          style={{
+            fontSize: 15,
+            color: "#ffa800",
+            marginHorizontal: 10,
+            marginTop: -6,
+          }}
+        >
+          Buyer
+        </Text>
+      </View>
     </View>
   );
 }
@@ -56,11 +69,11 @@ const Buyer = () => {
             case "Profile":
               iconName = focused ? "person-circle" : "person-circle-outline";
               break;
+            case "Schedules":
+              iconName = focused ? "calendar" : "calendar-outline";
+              break;
             case "Settings":
               iconName = focused ? "ios-list" : "ios-list-outline";
-              break;
-            case "Schedule":
-              iconName = focused ? "calendar" : "calendar-outline";
               break;
             default:
               iconName = focused
@@ -93,7 +106,7 @@ const Buyer = () => {
       <Tab.Screen name="Explore" component={Explore} />
       <Tab.Screen name="Chats" component={Chats} />
       <Tab.Screen name="Profile" component={Profile} />
-      {/* <Tab.Screen name="Schedule" component={Schedule} /> */}
+      <Tab.Screen name="Schedule" component={Schedules} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );

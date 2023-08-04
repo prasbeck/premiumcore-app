@@ -4,24 +4,37 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Dashboard from "./Dashboard";
 import Chats from "../Chats";
+import Schedules from "../Schedules";
 
 function Header() {
   return (
     <View style={{ flexDirection: "row", paddingHorizontal: 10 }}>
       <Image
         source={require("../../../assets/images/logo.png")}
-        style={{ width: 30, height: 30 }}
+        style={{ width: 35, height: 30, marginTop: 6 }}
       />
-      <Text
-        style={{
-          fontSize: 25,
-          fontWeight: "900",
-          color: "#ffa800",
-          marginLeft: 10,
-        }}
-      >
-        PremiumCores
-      </Text>
+      <View>
+        <Text
+          style={{
+            fontSize: 25,
+            fontWeight: "900",
+            color: "#ffa800",
+            marginLeft: 10,
+          }}
+        >
+          PremiumCores
+        </Text>
+        <Text
+          style={{
+            fontSize: 15,
+            marginTop: -6,
+            marginHorizontal: 10,
+            color: "#ffa800",
+          }}
+        >
+          Seller
+        </Text>
+      </View>
     </View>
   );
 }
@@ -42,9 +55,12 @@ const Seller = () => {
             case "Chats":
               iconName = focused ? "chatbubbles" : "chatbubbles-outline";
               break;
+            case "Schedules":
+              iconName = focused ? "calendar" : "calendar-outline";
+              break;
 
             default:
-              iconName = focused ? "person-circle" : "person-circle-outline";
+              iconName = focused ? "calendar" : "calendar-outline";
               break;
           }
           // if (route.name === "Explore") {
@@ -72,7 +88,7 @@ const Seller = () => {
       <Tab.Screen name="Dashboard" component={Dashboard} />
       <Tab.Screen name="Chats" component={Chats} />
       {/* <Tab.Screen name="Profile" component={Profile} /> */}
-      {/* <Tab.Screen name="Schedule" component={Schedule} /> */}
+      <Tab.Screen name="Schedule" component={Schedules} />
     </Tab.Navigator>
   );
 };
